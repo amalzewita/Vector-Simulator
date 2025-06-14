@@ -1,0 +1,136 @@
+/* === Base Page Styles === */
+body {
+  font-family: 'Segoe UI', sans-serif; /* Clean, modern font */
+  margin: 0;
+  padding: 0;
+  background: #f4f4f4; /* Light gray background */
+  color: #333; /* Dark gray text */
+}
+
+/* === Main container to center and constrain content === */
+.container {
+  max-width: 960px;
+  margin: auto;
+  padding: 20px;
+}
+
+/* === Header section styling === */
+header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* === Control panel layout: vector method buttons, select box, and play/reset === */
+.controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap; /* Allow wrapping on small screens */
+  margin-bottom: 20px;
+}
+
+/* === Base button style === */
+.btn {
+  padding: 10px 15px;
+  margin: 5px;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s ease; /* Smooth hover effect */
+}
+
+/* === Style for active/selected button (darker + inner shadow) === */
+.btn.active {
+  filter: brightness(85%);
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.4);
+}
+
+/* === Specific styles for triangle method button === */
+.triangle {
+  background: #3b82f6; /* Blue */
+  color: #fff;
+}
+.triangle:hover {
+  background: #2563eb; /* Darker on hover */
+}
+
+/* === Specific styles for parallelogram method button === */
+.parallelogram {
+  background: #10b981; /* Green */
+  color: #fff;
+}
+.parallelogram:hover {
+  background: #059669; /* Darker green on hover */
+}
+
+/* === Play button style === */
+.play {
+  background: #f59e0b; /* Amber */
+  color: #fff;
+}
+.play:hover {
+  background: #d97706; /* Darker amber on hover */
+}
+
+/* === Reset button style === */
+.reset {
+  background: #ef4444; /* Red */
+  color: #fff;
+}
+.reset:hover {
+  background: #dc2626; /* Darker red on hover */
+}
+
+/* === Dropdown selector styling === */
+.vector-select select {
+  padding: 8px;
+  font-size: 1rem;
+  margin-left: 5px;
+}
+
+/* === Vector input fields layout === */
+.vector-inputs {
+  margin-bottom: 20px;
+}
+.vector-inputs div {
+  margin-bottom: 10px;
+}
+.vector-inputs input {
+  padding: 5px;
+  margin-left: 5px;
+  width: 70px;
+}
+
+/* === Canvas container styling === */
+.canvas-wrapper {
+  background: #fff;
+  border: 1px solid #ccc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
+
+/* === Canvas styling (for drawing vectors) === */
+canvas {
+  background: #ffffff;
+  cursor: pointer;
+}
+canvas:active {
+  cursor: grabbing; /* While dragging vector */
+}
+
+/* === Resultant vector output section === */
+.result {
+  margin-top: 20px;
+  font-weight: bold;
+}
+
+/* === Footer styling === */
+footer {
+  text-align: center;
+  margin-top: 40px;
+  font-size: 0.9rem;
+  color: #777;
+}
