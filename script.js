@@ -123,15 +123,15 @@ function calculateData() {
   // Case 2: 2 vectors - parallelogram method
   else if (vectorCount === 2 && method === 'parallelogram') {
     const [v1, v2] = vectors.map(v => polarToCartesian(v.magnitude, v.angle));
-    const res2 = { x: v1.x + v2.x, y: v1.y + v2.y };
+    res = { x: v1.x + v2.x, y: v1.y + v2.y }; // ✅ Assign to `res` instead of res2
 
     data.push({ label: 'Vector 1', data: [{ x: 0, y: 0 }, { x: v1.x, y: v1.y }], borderColor: clr[0], showLine: true, pointRadius: 4, borderWidth: 3 });
     data.push({ label: 'Vector 2', data: [{ x: 0, y: 0 }, { x: v2.x, y: v2.y }], borderColor: clr[1], showLine: true, pointRadius: 4, borderWidth: 3 });
 
     if (showResult) {
-      data.push({ label: 'Resultant = V1 + V2', data: [{ x: 0, y: 0 }, res2], borderColor: 'red', showLine: true, pointRadius: 4, borderWidth: 3 });
-      data.push({ label: 'Dashed V1', data: [{ x: v2.x, y: v2.y }, { x: v1.x + v2.x, y: v1.y + v2.y }], borderColor: 'gray', borderDash: [6, 4], showLine: true, pointRadius: 0, borderWidth: 2 });
-      data.push({ label: 'Dashed V2', data: [{ x: v1.x, y: v1.y }, { x: v1.x + v2.x, y: v1.y + v2.y }], borderColor: 'gray', borderDash: [6, 4], showLine: true, pointRadius: 0, borderWidth: 2 });
+      data.push({ label: 'Resultant = V1 + V2', data: [{ x: 0, y: 0 }, res], borderColor: 'red', showLine: true, pointRadius: 4, borderWidth: 3 });
+      data.push({ label: 'Dashed V1', data: [{ x: v2.x, y: v2.y }, { x: res.x, y: res.y }], borderColor: 'gray', borderDash: [6, 4], showLine: true, pointRadius: 0, borderWidth: 2 });
+      data.push({ label: 'Dashed V2', data: [{ x: v1.x, y: v1.y }, { x: res.x, y: res.y }], borderColor: 'gray', borderDash: [6, 4], showLine: true, pointRadius: 0, borderWidth: 2 });
     }
   }
 
@@ -260,7 +260,8 @@ function calculateData() {
     }
   }
 
-  updateResultOutput(showResult ? res : null);
+  const shouldShowResult = method === 'parallelogram' || showResult;
+  updateResultOutput(shouldShowResult ? res : null);
   return data;
 }
 
